@@ -20,6 +20,7 @@ public class Server {
 
         int nPack = Integer.parseInt(socket_reader.readLine());
         int lastAck = 0;
+        System.out.println("Server got " + nPack);
         while (lastAck < nPack){
             String response = socket_reader.readLine();
             if (Integer.parseInt(response) == lastAck + 1){
@@ -29,9 +30,8 @@ public class Server {
             }else{
                 System.out.println("Did not get expected packet: " + response);
             }
-
-
         }
+        System.out.println("Got all packets, closing connection");
         socket.close();
     }
 }

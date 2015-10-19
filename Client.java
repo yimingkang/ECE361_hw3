@@ -12,6 +12,7 @@ public class Client{
         BufferedReader socket_reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         DataOutputStream writer = new DataOutputStream(socket.getOutputStream());
 
+        writer.writeBytes(nPack + "" + "\r\n");
 		while(sent <= nPack){
             // send the integer
             System.out.println("Client sending " + sent);
