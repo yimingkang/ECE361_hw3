@@ -26,7 +26,7 @@ public class Server {
             if (Integer.parseInt(response) == lastAck + 1){
                 lastAck += 1;
                 System.out.println("Server got packet " + lastAck);
-                writer.writeBytes(lastAck + "" + "\r\n");
+                writer.writeBytes(lastAck + "\r\n");
             }else{
                 System.out.println("Did not get expected packet: " + response);
             }
