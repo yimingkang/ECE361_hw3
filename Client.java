@@ -21,8 +21,8 @@ public class Client{
         Scanner scr = new Scanner(System.in);
         System.out.print("Please enter the number of packets:");
         nPack = scr.nextInt();
-        // System.out.print("Please enter the error rate (between 0 and 100):");
-        // pError = scr.nextInt();
+        System.out.print("Please enter the error rate (between 0 and 100):");
+        pError = scr.nextInt();
         System.out.print("Please enter the window size:");
         wSize = scr.nextInt();
         System.out.print("Please enter timeout threshold (in milliseconds):");
@@ -51,8 +51,8 @@ public class Client{
 		}
 
         // Send nPack packets to server
-		while(sent <= nPack){
-            if (sent - lastAck <= wSize){
+		while(lastAck != nPack){
+            if (sent - lastAck <= wSize && sent <= nPack){
                 System.out.println("Client sending packet: " + sent);
                 writer.write(sent);
                 sent +=1;
