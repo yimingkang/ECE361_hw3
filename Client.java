@@ -20,13 +20,13 @@ public class Client{
         Socket socket = new Socket("localhost",9876);
         Scanner scr = new Scanner(System.in);
         System.out.print("Please enter the number of packets:");
-        // nPack = scr.nextInt();
-        System.out.print("Please enter the error rate (between 0 and 100):");
+        nPack = scr.nextInt();
+        // System.out.print("Please enter the error rate (between 0 and 100):");
         // pError = scr.nextInt();
         System.out.print("Please enter the window size:");
-        // wSize = scr.nextInt();
+        wSize = scr.nextInt();
         System.out.print("Please enter timeout threshold (in milliseconds):");
-        // timeOut = scr.nextLong();
+        timeOut = scr.nextLong();
         long timer[] = new long[wSize];
         int sent = 1;
         DataOutputStream writer = new DataOutputStream(socket.getOutputStream());
